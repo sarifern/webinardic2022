@@ -11,6 +11,7 @@ if TOKEN:
 # TODO: implementacion de Bot
 # TODO: comando sencillo que regrese texto con endpoint de informacion
 # de equipo endpoint teams_per_id
+# TODO: agregar el comando help
 # TODO: comando que regrese card con los partidos de hoy
 # si time_elapsed="notstarted", mostrar paises banderitas y horario
 # si ya empezó, mostrar ongoing y que tiempo time_elapsed, mostrar
