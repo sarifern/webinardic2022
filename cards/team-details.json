@@ -1,0 +1,219 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "{{ team_details['flag'] }}",
+                            "size": "Small"
+                        }
+                    ],
+                    "width": "stretch"
+                },
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "size": "ExtraLarge",
+                            "weight": "Bolder",
+                            "text": "{{ team_details['name_en'] }}",
+                            "horizontalAlignment": "Left",
+                            "color": "Accent"
+                        }
+                    ],
+                    "width": 6,
+                    "horizontalAlignment": "Left"
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "MP",
+                            "wrap": true,
+                            "isSubtle": true,
+                            "size": "Small",
+                            "color": "Light",
+                            "horizontalAlignment": "Center"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ team_details['mp'] }}",
+                            "wrap": true,
+                            "separator": true,
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "W",
+                            "wrap": true,
+                            "isSubtle": true,
+                            "size": "Small",
+                            "color": "Light",
+                            "horizontalAlignment": "Center"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ team_details['w'] }}",
+                            "wrap": true,
+                            "separator": true,
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "D",
+                            "wrap": true,
+                            "isSubtle": true,
+                            "size": "Small",
+                            "color": "Light",
+                            "horizontalAlignment": "Center"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ team_details['d'] }}",
+                            "wrap": true,
+                            "separator": true,
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "L",
+                            "wrap": true,
+                            "isSubtle": true,
+                            "size": "Small",
+                            "color": "Light",
+                            "horizontalAlignment": "Center"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ team_details['l'] }}",
+                            "wrap": true,
+                            "separator": true,
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "GF",
+                            "wrap": true,
+                            "isSubtle": true,
+                            "size": "Small",
+                            "color": "Light",
+                            "horizontalAlignment": "Center"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ team_details['gf'] }}",
+                            "wrap": true,
+                            "separator": true,
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "GA",
+                            "wrap": true,
+                            "isSubtle": true,
+                            "size": "Small",
+                            "color": "Light",
+                            "horizontalAlignment": "Center"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ team_details['ga'] }}",
+                            "wrap": true,
+                            "separator": true,
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "GD",
+                            "wrap": true,
+                            "isSubtle": true,
+                            "size": "Small",
+                            "color": "Light",
+                            "horizontalAlignment": "Center"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ team_details['gd'] }}",
+                            "wrap": true,
+                            "separator": true,
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Pts",
+                            "wrap": true,
+                            "isSubtle": true,
+                            "size": "Small",
+                            "color": "Light",
+                            "horizontalAlignment": "Center"
+                        },
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ team_details['pts'] }}",
+                            "wrap": true,
+                            "separator": true,
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

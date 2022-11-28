@@ -1,0 +1,67 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Large",
+            "weight": "Bolder",
+            "text": "Equipos Copa Mundial FIFA 2022"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Selecciona un equipo",
+            "isSubtle": true
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": 1,
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Equipo:",
+                            "horizontalAlignment": "Center"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "Input.ChoiceSet",
+                            "id": "equipo",
+                            "choices": [
+                                {% for team in teams %}
+                                {
+                                    "title": "{{ team['name_en'] }}",
+                                    "value": "{{ team['id'] }}"
+                                }
+                                {% if teams[-1] != team %}
+                                ,
+                                {% endif %}
+                                {% endfor %}
+                            ]
+                        }
+                    ],
+                    "width": 3,
+                    "horizontalAlignment": "Left"
+                }
+            ],
+            "spacing": "ExtraLarge",
+            "separator": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Obtener",
+            "data": {
+                "callback_keyword": "team_callback"
+            }
+        }
+    ]
+}
