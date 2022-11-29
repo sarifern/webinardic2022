@@ -1,0 +1,149 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [{
+            "type": "Container",
+            "separator": true,
+            "items": [
+                {
+               
+                    "type": "TextBlock",
+                    "size": "ExtraLarge",
+                    "weight": "Bolder",
+                    "text": "Juegos de Hoy",
+                    "horizontalAlignment": "Left",
+                    "color": "Accent"
+                }
+                ]
+            }
+            {% for match in matches %}
+            ,{
+            "type": "Container",
+            "items": [{
+            "type": "TextBlock",
+            "text": "Horario Mex: {{ match['local_date'] }}",
+            "weight": "Bolder",
+            "spacing": "None"
+        },
+        {% if match['time_elapsed'] == "mid" %}
+        {
+            "type": "TextBlock",
+            "text": "Medio tiempo",
+            "weight": "Bolder",
+            "spacing": "None"
+        },
+        {% elif match['time_elapsed'] == "h1" %}
+        {
+            "type": "TextBlock",
+            "text": "Primer Tiempo",
+            "weight": "Bolder",
+            "spacing": "None"
+        },
+        {% elif match['time_elapsed'] == "h2" %}
+        {
+            "type": "TextBlock",
+            "text": "Segundo Tiempo",
+            "weight": "Bolder",
+            "spacing": "None"
+        },
+        {% endif %}
+
+        {
+            "type": "ColumnSet",
+            "separator": true,
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "{{ match['home_team_en'] }}",
+                            "size": "ExtraLarge",
+                            "color": "Accent",
+                             "wrap": true,
+                            "horizontalAlignment":"Center"
+                        },
+                        {
+                            "type": "ImageSet",
+                            "images": [
+                                {
+                                    "type": "Image",
+                                    "size": "Medium",
+                                    "url": "{{ match['home_flag'] }}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {% if match['time_elapsed'] == 'notstarted' %}
+                        {
+                            "type": "TextBlock",
+                            "horizontalAlignment": "Center",
+                            "size": "ExtraLarge",
+                            "text": "Por definir",
+                            "wrap": true
+                        }
+                        {% elif match['time_elapsed'] == 'finished' %}
+                        {
+                            "type": "TextBlock",
+                            "horizontalAlignment": "Center",
+                            "size": "ExtraLarge",
+                            "text": "{{match['home_score']}}-{{match['away_score']}} \nFinal",
+                            "wrap":true,
+                            "color": "Attention"
+                        }
+                        
+                        {% else %}
+                        {
+                            "type": "TextBlock",
+                            "horizontalAlignment": "Center",
+                            "size": "ExtraLarge",
+                            "text": "{{match['home_score']}}-{{match['away_score']}}",
+                            "color": "Good"
+                        }
+                        
+                        {% endif %}
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        
+                        {
+                            "type": "TextBlock",
+                            "horizontalAlignment": "Right",
+                            "size": "ExtraLarge",
+                            "color": "Accent",
+                            "wrap": true,
+                            "text": "{{ match['away_team_en'] }}",
+                            "spacing": "None",
+                            "horizontalAlignment":"Center"
+                        },
+                        {
+                            "type": "ImageSet",
+                            "images": [
+                                {
+                                    "type": "Image",
+                                    "size": "Medium",
+                                    "url": "{{ match['away_flag'] }}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }]
+            }
+            {% endfor %}
+        
+        
+
+    ]
+}

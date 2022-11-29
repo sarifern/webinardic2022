@@ -1,25 +1,23 @@
 from webex_bot.webex_bot import WebexBot
-from teams import TeamDetails
-from matches import MatchDetails
+from commands.teams import TeamDetails
+from commands.matches import MatchDetails
+from apis import fifa_api
 import os
 
 WEBEX_TOKEN = os.environ.get("WEBEX_TOKEN")
 
-# TODO: implementacion de Bot
-bot = WebexBot(WEBEX_TOKEN, approved_domains=['cisco.com'])
 
-# TODO: comando sencillo que regrese texto con endpoint de informacion
-# de equipo endpoint teams_per_id
-# TODO: agregar el comando help
-bot.add_command(TeamDetails())
-bot.add_command(MatchDetails())
+EMAIL = os.environ.get("EMAIL")
+PASSWORD = os.environ.get("PASSWORD")
+
+FIFA_TOKEN = fifa_api.login(email=EMAIL, password=PASSWORD)
+
+bot = WebexBot(
+    WEBEX_TOKEN,
+    bot_help_subtitle="Hola! Estos son los comandos que tengo habilitados:",
+)
+
+bot.add_command(TeamDetails(TOKEN=FIFA_TOKEN))
+bot.add_command(MatchDetails(TOKEN=FIFA_TOKEN))
 
 bot.run()
-
-
-# TODO: comando que regrese card con los partidos de hoy
-# si time_elapsed="notstarted", mostrar paises banderitas y horario
-# si ya empezó, mostrar ongoing y que tiempo time_elapsed, mostrar
-# paises banderitas goles y quien los metio
-# si ya termino, mostrar finished, mostrar paises banderitas
-# y goles y quien los metio

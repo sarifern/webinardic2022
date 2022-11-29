@@ -1,4 +1,6 @@
 .python-version
 .env
-
+.flake8
+.pre-commit-config.yaml
+pyproject.toml
 **.pyc
