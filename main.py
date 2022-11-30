@@ -3,6 +3,9 @@ from commands.teams import TeamDetails
 from commands.matches import MatchDetails
 from apis import fifa_api
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 WEBEX_TOKEN = os.environ.get("WEBEX_TOKEN")
 
